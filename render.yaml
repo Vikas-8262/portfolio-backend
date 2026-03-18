@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: vikas-portfolio-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: GMAIL_USER
+        value: vikas.rathod.tech@gmail.com
+      - key: GMAIL_APP_PASS
+        sync: false
+      - key: ADMIN_HASH
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PYTHON_VERSION
+        value: 3.9.13
